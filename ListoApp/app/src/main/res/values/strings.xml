@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ListoApp</string>
+    <string name="thing_to_do_uniqId">Rzecz do zrobienia - %s</string>
+    <string name="remove">Usuń</string>
+    <string name="created_time">Data utworzenia: %s</string>
+    <string name="open_counter">Otworzono ilość razy: %s </string>
+
+</resources>
