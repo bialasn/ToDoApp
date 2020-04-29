@@ -2,8 +2,8 @@ package com.nbialas.listoapp.viewModels
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nbialas.listoapp.base.BaseViewModel
 import com.nbialas.listoapp.dagger.Injector
 import com.nbialas.listoapp.database.dao.ThingToDoDao
 import com.nbialas.listoapp.models.ThingToDo
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
     @Inject
     lateinit var thingToDoDao: ThingToDoDao
 

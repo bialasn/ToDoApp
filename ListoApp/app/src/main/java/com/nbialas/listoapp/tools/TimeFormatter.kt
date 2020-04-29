@@ -13,12 +13,12 @@ object TimeFormatter {
         val builder = StringBuilder()
         builder.append(context.resources.getString(R.string.created))
 
-        val secondDifference = time / SECOND_TIME
+        val secondsDifference = time / SECOND_TIME
 
         val days = TimeUnit.MILLISECONDS.toDays(time)
-        val hours = (secondDifference % (HOUR * 24L)) / HOUR
-        val minutes = (secondDifference % HOUR) / SECOND
-        val seconds = secondDifference % SECOND
+        val hours = (secondsDifference % (HOUR * 24L)) / HOUR
+        val minutes = (secondsDifference % HOUR) / SECOND
+        val seconds = secondsDifference % SECOND
 
         if (days > 0) builder.append(
             context.resources.getString(R.string.days, days.toString())

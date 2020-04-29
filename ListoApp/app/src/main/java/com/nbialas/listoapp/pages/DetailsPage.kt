@@ -26,31 +26,27 @@ class DetailsPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getSingleThingToDo()
         setObservers()
     }
 
     private fun setObservers() {
-        viewModel.thingToDoDao.getSingleThing(viewModel.thingID)
-            .observe(viewLifecycleOwner, Observer {
-                thingName.text = it.name
-                thingID.text = it.uniqueID
-                counter.text = resources.getString(R.string.open_counter, it.openCounter.toString())
-                viewModel.setTime(it.creationDate)
-            })
+        viewModel.thing.observe(viewLifecycleOwner, Observer {
+            thingName.text = it.name
+            thingID.text = it.uniqueID
+            thingCounter.text =
+                resources.getString(R.string.open_counter, it.openCounter.toString())
+        })
 
         viewModel.passedTime.observe(viewLifecycleOwner, Observer {
-            time.text = it
+            thingPassedTime.text = it
         })
     }
 
     private fun getArgumentsFromBundle() {
         arguments?.getString(Constant.THING_KEY)?.let {
-            viewModel.thingID = it
+            viewModel.setThingId(it)
         }
     }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.calculateTime().cancel()
-    }
+    
 }

@@ -5,4 +5,7 @@
     <dimen name="_24dp_margin">24dp</dimen>
     <dimen name="_32dp_margin">32dp</dimen>
     <dimen name="_16dp_margin">16dp</dimen>
+    <!--SP-->
+    <dimen name="_16sp">16sp</dimen>
+
 </resources>

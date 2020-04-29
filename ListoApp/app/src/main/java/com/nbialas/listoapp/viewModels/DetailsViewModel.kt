@@ -2,46 +2,64 @@ package com.nbialas.listoapp.viewModels
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.nbialas.listoapp.base.BaseViewModel
 import com.nbialas.listoapp.dagger.Injector
 import com.nbialas.listoapp.database.dao.ThingToDoDao
+import com.nbialas.listoapp.models.ThingToDo
 import com.nbialas.listoapp.tools.TimeFormatter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class DetailsViewModel : ViewModel() {
+class DetailsViewModel : BaseViewModel() {
     @Inject
     lateinit var thingToDoDao: ThingToDoDao
 
     @Inject
     lateinit var contextDagger: Context
+
     var passedTime = MutableLiveData<String>()
+    var thing = MutableLiveData<ThingToDo>()
     var thingID: String = ""
-    var startTime: Long = -1
 
     init {
         Injector.component.inject(this)
     }
 
-    fun setTime(time: Long) {
-        startTime = time
-            .also { calculateTime() }
+    fun setThingId(id: String) {
+        thingID = id
     }
 
-    fun calculateTime() =
-        CoroutineScope(Dispatchers.Default).launch {
-            while (true) {
-                delay(200)
-                passedTime.postValue(
-                    TimeFormatter.parseTime(
-                        contextDagger,
-                        System.currentTimeMillis().minus(startTime)
+    fun getSingleThingToDo() {
+        rxDisposer.add(
+            thingToDoDao.getSingleThing(thingID)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterSuccess { singleThing ->
+                    thing.postValue(singleThing)
+                    calculateTime(singleThing.creationDate)
+                }
+                .subscribe()
+        )
+
+    }
+
+    private fun calculateTime(time: Long) {
+        rxDisposer.add(
+            Observable.interval(1, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    passedTime.postValue(
+                        TimeFormatter.parseTime(
+                            contextDagger,
+                            System.currentTimeMillis().minus(time)
+                        )
                     )
-                )
-                delay(800)
-            }
-        }
+                }
+        )
+    }
+
 }
