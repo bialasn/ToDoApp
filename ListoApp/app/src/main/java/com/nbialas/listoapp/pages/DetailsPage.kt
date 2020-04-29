@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nbialas.listoapp.R
-import com.nbialas.listoapp.const.Const
+import com.nbialas.listoapp.constant.Constant
 import com.nbialas.listoapp.viewModels.DetailsViewModel
 import kotlinx.android.synthetic.main.details_page.*
 
@@ -44,7 +44,7 @@ class DetailsPage : Fragment() {
     }
 
     private fun getArgumentsFromBundle() {
-        arguments?.getString(Const.BUNDLE_KEY)?.let {
+        arguments?.getString(Constant.BUNDLE_KEY)?.let {
             viewModel.thingID = it
         }
     }

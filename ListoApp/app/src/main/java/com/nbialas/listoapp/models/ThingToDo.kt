@@ -6,11 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "thingToDoData")
 class ThingToDo(
-    @ColumnInfo(name = "name")
-    val name: String,
     @PrimaryKey
     @ColumnInfo(name = "uniqueID")
     val uniqueID: String,
+
+    @ColumnInfo(name = "name")
+    val name: String,
 
     @ColumnInfo(name = "creationDate")
     val creationDate: Long,

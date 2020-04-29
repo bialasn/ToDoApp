@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nbialas.listoapp.dagger.Injector
-import com.nbialas.listoapp.db.ThingToDoDao
+import com.nbialas.listoapp.database.dao.ThingToDoDao
 import com.nbialas.listoapp.tools.TimeFormatter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

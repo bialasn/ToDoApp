@@ -2,8 +2,8 @@ package com.nbialas.listoapp.dagger.modules
 
 import androidx.room.Room
 import com.nbialas.listoapp.App
-import com.nbialas.listoapp.db.ThingDatabase
-import com.nbialas.listoapp.db.ThingToDoDao
+import com.nbialas.listoapp.database.ThingDatabase
+import com.nbialas.listoapp.database.dao.ThingToDoDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

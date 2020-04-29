@@ -12,12 +12,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nbialas.listoapp.R
 import com.nbialas.listoapp.adapters.ThingToDoDataAdapter
-import com.nbialas.listoapp.const.Const.BUNDLE_KEY
+import com.nbialas.listoapp.constant.Constant.BUNDLE_KEY
 import com.nbialas.listoapp.viewModels.HomeViewModel
 import kotlinx.android.synthetic.main.home_page.*
 
 class HomePage : Fragment() {
     private lateinit var viewModel: HomeViewModel
+
     private val thingAdapter by lazy { ThingToDoDataAdapter() }
 
     override fun onCreateView(
@@ -33,7 +34,6 @@ class HomePage : Fragment() {
         setAdapter()
         setOnClickListener()
         setObservers()
-
     }
 
     private fun setObservers() {

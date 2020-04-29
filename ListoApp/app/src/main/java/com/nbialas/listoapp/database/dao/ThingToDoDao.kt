@@ -1,4 +1,4 @@
-package com.nbialas.listoapp.db
+package com.nbialas.listoapp.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

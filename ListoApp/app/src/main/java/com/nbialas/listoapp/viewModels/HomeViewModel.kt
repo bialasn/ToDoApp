@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nbialas.listoapp.dagger.Injector
-import com.nbialas.listoapp.db.ThingToDoDao
+import com.nbialas.listoapp.database.dao.ThingToDoDao
 import com.nbialas.listoapp.models.ThingToDo
 import com.nbialas.listoapp.tools.ThingNameGenerator
 import kotlinx.coroutines.launch
