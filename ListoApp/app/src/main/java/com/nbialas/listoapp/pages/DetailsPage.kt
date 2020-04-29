@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nbialas.listoapp.R
-import com.nbialas.listoapp.constant.Constant
+import com.nbialas.listoapp.utils.constant.Constant
 import com.nbialas.listoapp.viewModels.DetailsViewModel
 import kotlinx.android.synthetic.main.details_page.*
 
@@ -48,5 +48,5 @@ class DetailsPage : Fragment() {
             viewModel.setThingId(it)
         }
     }
-    
+
 }

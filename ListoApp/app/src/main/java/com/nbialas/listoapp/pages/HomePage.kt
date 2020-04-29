@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nbialas.listoapp.R
 import com.nbialas.listoapp.adapters.ThingToDoDataAdapter
-import com.nbialas.listoapp.constant.Constant.THING_KEY
+import com.nbialas.listoapp.utils.constant.Constant.THING_KEY
 import com.nbialas.listoapp.viewModels.HomeViewModel
 import kotlinx.android.synthetic.main.home_page.*
 
