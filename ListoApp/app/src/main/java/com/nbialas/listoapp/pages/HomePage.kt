@@ -12,13 +12,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nbialas.listoapp.R
 import com.nbialas.listoapp.adapters.ThingToDoDataAdapter
-import com.nbialas.listoapp.constant.Constant.BUNDLE_KEY
+import com.nbialas.listoapp.constant.Constant.THING_KEY
 import com.nbialas.listoapp.viewModels.HomeViewModel
 import kotlinx.android.synthetic.main.home_page.*
 
 class HomePage : Fragment() {
     private lateinit var viewModel: HomeViewModel
-
     private val thingAdapter by lazy { ThingToDoDataAdapter() }
 
     override fun onCreateView(
@@ -47,12 +46,12 @@ class HomePage : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = this@HomePage.thingAdapter
         }
-        thingAdapter.onClickAction = {
-            viewModel.updateThingCounter(it)
-            findNavController().navigate(R.id.detailsPage, bundleOf(Pair(BUNDLE_KEY, it.uniqueID)))
-        }
-        thingAdapter.removeItem = {
-            viewModel.removeItem(it)
+        thingAdapter.apply {
+            onClickAction = {
+                viewModel.updateThingCounter(it)
+                navigateToThingDetails(it.uniqueID)
+            }
+            removeItem = { viewModel.removeItem(it) }
         }
     }
 
@@ -61,4 +60,9 @@ class HomePage : Fragment() {
             viewModel.addThingToDo()
         }
     }
+
+    private fun navigateToThingDetails(id: String) = findNavController().navigate(
+        R.id.detailsPage,
+        bundleOf(Pair(THING_KEY, id))
+    )
 }

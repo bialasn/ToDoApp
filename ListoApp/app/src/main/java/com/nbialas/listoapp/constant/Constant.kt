@@ -1,5 +1,5 @@
 package com.nbialas.listoapp.constant
 
 object Constant {
-    const val BUNDLE_KEY: String = "BUNDLE_KEY"
+    const val THING_KEY: String = "BUNDLE_KEY"
 }
