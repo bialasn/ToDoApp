@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.nbialas.listoapp.dagger.Injector
 import com.nbialas.listoapp.db.ThingToDoDao
 import com.nbialas.listoapp.models.ThingToDo
-import com.nbialas.listoapp.tools.Generator
+import com.nbialas.listoapp.tools.ThingNameGenerator
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -34,7 +34,7 @@ class HomeViewModel : ViewModel() {
     fun addThingToDo() =
         viewModelScope.launch {
             thingToDoDao.saveThingToDo(
-                Generator.thingNameGenerator(
+                ThingNameGenerator.generateName(
                     contextDagger
                 )
             )
