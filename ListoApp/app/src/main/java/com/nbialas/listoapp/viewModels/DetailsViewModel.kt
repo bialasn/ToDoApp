@@ -6,7 +6,7 @@ import com.nbialas.listoapp.base.BaseViewModel
 import com.nbialas.listoapp.dagger.Injector
 import com.nbialas.listoapp.database.dao.ThingToDoDao
 import com.nbialas.listoapp.models.ThingToDo
-import com.nbialas.listoapp.tools.TimeFormatter
+import com.nbialas.listoapp.utils.TimeFormatter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -43,7 +43,6 @@ class DetailsViewModel : BaseViewModel() {
                 }
                 .subscribe()
         )
-
     }
 
     private fun calculateTime(time: Long) {
