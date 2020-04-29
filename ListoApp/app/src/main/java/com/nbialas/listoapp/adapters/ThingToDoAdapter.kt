@@ -3,7 +3,6 @@ package com.nbialas.listoapp.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.nbialas.listoapp.R
 import com.nbialas.listoapp.models.ThingToDo
@@ -34,12 +33,14 @@ class ThingToDoDataAdapter : RecyclerView.Adapter<ThingDataHolder>() {
 
     override fun onBindViewHolder(holder: ThingDataHolder, position: Int) {
         val thingToDo = data?.get(position)
-        thingToDo?.let { item ->
+        thingToDo?.let { thingItem ->
             holder.itemView.apply {
-                name.text = item.name
-                cardView.setCardBackgroundColor(item.color)
-                cardView.setOnClickListener { onClickAction(item) }
-                removeButton.setOnClickListener { removeItem(item) }
+                thingItemName.text = thingItem.name
+                thingItemFrame.apply {
+                    setCardBackgroundColor(thingItem.color)
+                    setOnClickListener { onClickAction(thingItem) }
+                }
+                thingRemoveButton.setOnClickListener { removeItem(thingItem) }
             }
         }
     }

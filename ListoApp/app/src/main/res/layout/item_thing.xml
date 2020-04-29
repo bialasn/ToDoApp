@@ -1,41 +1,37 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/thingItemFrame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:id="@+id/cardView"
-    app:cardCornerRadius="16dp">
+    android:layout_margin="@dimen/_8dp_margin"
+    app:cardCornerRadius="@dimen/_16dp_cornerRadius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/thingItemName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/_24dp_margin"
+            android:layout_marginTop="@dimen/_32dp_margin"
+            android:layout_marginEnd="@dimen/_32dp_margin"
+            android:layout_marginBottom="@dimen/_32dp_margin"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/removeButton"
+            app:layout_constraintEnd_toStartOf="@+id/thingRemoveButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/removeButton"
+            android:id="@+id/thingRemoveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/_16dp_margin"
             android:text="@string/remove"
-            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/thingItemName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/name" />
+            app:layout_constraintTop_toTopOf="@+id/thingItemName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
