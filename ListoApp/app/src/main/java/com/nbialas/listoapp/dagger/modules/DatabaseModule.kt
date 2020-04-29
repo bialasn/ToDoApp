@@ -1,6 +1,5 @@
-package com.nbialas.listoapp.dagger
+package com.nbialas.listoapp.dagger.modules
 
-import android.content.Context
 import androidx.room.Room
 import com.nbialas.listoapp.App
 import com.nbialas.listoapp.db.ThingDatabase
@@ -11,7 +10,7 @@ import javax.inject.Singleton
 
 
 @Module
-class DbModule(private val application: App) {
+class DatabaseModule(private val application: App) {
     @Singleton
     @Provides
     fun provideRoomDatabase(): ThingDatabase {
@@ -27,12 +26,4 @@ class DbModule(private val application: App) {
     fun provideThingDao(database: ThingDatabase): ThingToDoDao {
         return database.thingDao()
     }
-
-    @Singleton
-    @Provides
-    fun provideContext(): Context {
-        return application.applicationContext
-    }
-
-
 }
