@@ -48,7 +48,7 @@ class DetailsViewModel : BaseViewModel() {
 
     private fun calculateTime(time: Long) {
         rxDisposer.add(
-            Observable.interval(1, TimeUnit.SECONDS)
+            Observable.interval(0, 1, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
