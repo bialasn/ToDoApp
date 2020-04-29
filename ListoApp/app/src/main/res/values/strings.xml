@@ -2,7 +2,11 @@
     <string name="app_name">ListoApp</string>
     <string name="thing_to_do_uniqId">Rzecz do zrobienia - %s</string>
     <string name="remove">Usuń</string>
-    <string name="created_time">Data utworzenia: %s</string>
+    <string name="created">Utworzono:\u0020</string>
+    <string name="days">%s dni\u0020</string>
+    <string name="hours">%s godz\u0020</string>
+    <string name="minutes">%s min\u0020</string>
+    <string name="seconds">%s sek\u0020</string>
     <string name="open_counter">Otworzono ilość razy: %s </string>
-
+    <string name="ago">temu</string>
 </resources>
