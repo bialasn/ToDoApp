@@ -44,7 +44,7 @@ class DetailsPage : Fragment() {
     }
 
     private fun getArgumentsFromBundle() {
-        arguments?.getString(Constant.BUNDLE_KEY)?.let {
+        arguments?.getString(Constant.THING_KEY)?.let {
             viewModel.thingID = it
         }
     }

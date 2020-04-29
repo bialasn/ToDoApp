@@ -15,6 +15,7 @@ import javax.inject.Inject
 class DetailsViewModel : ViewModel() {
     @Inject
     lateinit var thingToDoDao: ThingToDoDao
+
     @Inject
     lateinit var contextDagger: Context
     var passedTime = MutableLiveData<String>()
@@ -35,7 +36,8 @@ class DetailsViewModel : ViewModel() {
             while (true) {
                 delay(200)
                 passedTime.postValue(
-                    TimeFormatter.parseTime(contextDagger,
+                    TimeFormatter.parseTime(
+                        contextDagger,
                         System.currentTimeMillis().minus(startTime)
                     )
                 )

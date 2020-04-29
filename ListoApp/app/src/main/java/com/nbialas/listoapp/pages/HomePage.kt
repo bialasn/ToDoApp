@@ -36,7 +36,7 @@ class HomePage : Fragment() {
     }
 
     private fun setObservers() {
-        viewModel.thingToDoDao.getAll().observe(viewLifecycleOwner, Observer {
+        viewModel.thingToDoList.observe(viewLifecycleOwner, Observer {
             thingAdapter.setData(it)
         })
     }
@@ -51,7 +51,7 @@ class HomePage : Fragment() {
                 viewModel.updateThingCounter(it)
                 navigateToThingDetails(it.uniqueID)
             }
-            removeItem = { viewModel.removeItem(it) }
+            removeItem = { viewModel.removeThing(it) }
         }
     }
 

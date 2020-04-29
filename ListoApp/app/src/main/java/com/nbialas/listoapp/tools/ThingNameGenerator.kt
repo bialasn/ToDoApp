@@ -6,9 +6,9 @@ import com.nbialas.listoapp.R
 import com.nbialas.listoapp.models.ThingToDo
 import java.util.*
 
-object ThingNameGenerator {
+object ThingGenerator {
 
-    fun generateName(context: Context): ThingToDo {
+    fun generateThing(context: Context): ThingToDo {
         return ThingToDo(
             name = context.getString(R.string.thing_to_do_uniqId, generateUuid().takeLast(8)),
             uniqueID = generateUuid(),
